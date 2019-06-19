@@ -1655,6 +1655,10 @@ public:
 
    /// Construct a diffusion integrator with a scalar coefficient q
    DiffusionIntegrator (Coefficient &q) : Q(&q) { MQ = NULL; maps = NULL; geom = NULL; }
+   
+  /// Construct a diffusion integrator with a scalar coefficient q and integration rule
+   DiffusionIntegrator (Coefficient &q, const IntegrationRule *ir) 
+      : BilinearFormIntegrator(ir), Q(&q) { MQ = NULL; maps = NULL; geom = NULL; }
 
    /// Construct a diffusion integrator with a matrix coefficient q
    DiffusionIntegrator (MatrixCoefficient &q) : MQ(&q) { Q = NULL; maps = NULL; geom = NULL; }
