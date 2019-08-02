@@ -179,6 +179,11 @@ public:
        @note @a max_order can't be higher than the current maximum order. */
    void SetMaxOrder(int max_order);
 
+   /// Set the maximum number of steps inbetween t and tout
+   /** The default is 500 */
+   void SetMaxSteps(int max_steps)
+   { flag = CVodeSetMaxNumSteps(sundials_mem, max_steps); }
+
    /// Set the maximum time step of the linear multistep method.
    void SetMaxStep(double dt_max)
    { flag = CVodeSetMaxStep(sundials_mem, dt_max); }
